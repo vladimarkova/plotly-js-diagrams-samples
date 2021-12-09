@@ -2,11 +2,11 @@ function getData() {
     return Math.random();
 }
 
-function plotData() {
+function plotData(yVal) {
     // console.log(d3);
     Plotly.plot('real-time-plot', [
         {
-            y: [getData()],
+            y: [yVal()],
             type: 'line'
         }
     ])
@@ -17,7 +17,7 @@ function plotData() {
     setInterval(() => {
         // this is the main way to extend a plot with more points
         if (!stop) {
-            Plotly.extendTraces('real-time-plot', { y: [[getData()]] }, [0]);
+            Plotly.extendTraces('real-time-plot', { y: [[yVal()]] }, [0]);
             cnt++; 
         }
         
@@ -39,4 +39,4 @@ function plotData() {
     });
 };
 
-// plotData();
+plotData(getData);

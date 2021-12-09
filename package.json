@@ -1,0 +1,23 @@
+{
+  "name": "plotly-js-diagrams-samples",
+  "version": "1.0.0",
+  "description": "Sample simple app for plotting diagrams with Plotly.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladimarkova/plotly-js-diagrams-samples.git"
+  },
+  "author": "Vladi Markova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vladimarkova/plotly-js-diagrams-samples/issues"
+  },
+  "homepage": "https://github.com/vladimarkova/plotly-js-diagrams-samples#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

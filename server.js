@@ -8,6 +8,10 @@ const wss = new WebSocket.Server({ port: PORT });
 wss.on('connection', (ws) => {
     console.log('Client was connected.');
 
+    setInterval(() => {
+        ws.send('Regular MESSAGE CHECK FROM SERVER...');
+    }, 3000);
+
     ws.on('message', (data) => {
         console.log(`New message from client: ${data}.`);
         // console.log(typeof data);

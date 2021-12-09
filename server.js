@@ -1,6 +1,7 @@
 const WebSocket = require('ws');
 const fs = require('fs');
 const path = require('path');
+const csv = require('csv-parser'); 
 
 const PORT = process.env.PORT || 3000
 
@@ -10,10 +11,11 @@ const wss = new WebSocket.Server({ port: PORT });
 wss.on('connection', (ws) => {
     console.log('Client was connected.');
 
-    const rs = fs.createReadStream(path.join(__dirname, 'data', 'test.txt'), { encoding: 'utf-8' }); 
-    rs.on('data', (dataChunk) => {
-        ws.send(dataChunk);
-    })
+    const rs = fs.createReadStream(path.join(__dirname, 'data', 'ecg1.csv'), { encoding: 'utf-8' }); 
+    rs
+        .pipe(csv())
+        .on('data', dataChunk => console.log(dataChunk))
+        .on('end', () => console.log('CSV File Exhausted...'));
 
     ws.on('message', (data) => {
         console.log(`New message from client: ${data}.`);

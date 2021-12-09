@@ -14,7 +14,7 @@ wss.on('connection', (ws) => {
     const rs = fs.createReadStream(path.join(__dirname, 'data', 'ecg1.csv'), { encoding: 'utf-8' }); 
     rs
         .pipe(csv())
-        .on('data', dataChunk => console.log(dataChunk))
+        .on('data', (dataChunk) => ws.send(JSON.stringify(dataChunk)))
         .on('end', () => console.log('CSV File Exhausted...'));
 
     ws.on('message', (data) => {

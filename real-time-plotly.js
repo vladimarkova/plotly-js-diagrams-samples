@@ -15,7 +15,7 @@ function plotData() {
     let stop = false;
 
     setInterval(() => {
-        // this is the main way to etend a plot with more points
+        // this is the main way to extend a plot with more points
         if (!stop) {
             Plotly.extendTraces('real-time-plot', { y: [[getData()]] }, [0]);
             cnt++; 

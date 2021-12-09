@@ -21,7 +21,6 @@ function plotData(yVal) {
             cnt++; 
         }
         
-        // if (Plotly.onplotlyclick...)
         if (cnt > 500) {
             Plotly.relayout('real-time-plot', {
                 xaxis: {
@@ -32,8 +31,8 @@ function plotData(yVal) {
 
     }, 15)
 
-    var myPlot = document.getElementById('real-time-plot');
-    myPlot.on('plotly_click', function(){
+    const realTimePlot = document.getElementById('real-time-plot');
+    realTimePlot.addEventListener('plotly_click', function(){
         stop = true;
         alert('You clicked this Plotly chart!');
     });

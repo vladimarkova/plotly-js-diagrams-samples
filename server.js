@@ -11,7 +11,7 @@ const wss = new WebSocket.Server({ port: PORT });
 wss.on('connection', (ws) => {
     console.log('Client was connected.');
 
-    const rs = fs.createReadStream(path.join(__dirname, 'data', 'ecg1.csv'), { encoding: 'utf-8' }); 
+    const rs = fs.createReadStream(path.join(__dirname, 'data', 'data2.csv'), { encoding: 'utf-8' }); 
     rs
         .pipe(csv())
         .on('data', (dataChunk) => ws.send(JSON.stringify(dataChunk)))

@@ -4,7 +4,7 @@ const ws = new WebSocket('ws://localhost:3000');
 ws.addEventListener('open', () => {
     console.log('We are connected!');
 
-    ws.send('Hey! How is it going?');
+    // ws.send('Hey! How is it going?');
 });
 
 // ws.addEventListener('message', (msg) => {

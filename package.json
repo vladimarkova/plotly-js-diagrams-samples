@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/vladimarkova/plotly-js-diagrams-samples#readme",
   "dependencies": {
+    "csv-parser": "^3.0.0",
     "nodemon": "^2.0.15",
     "ws": "^8.3.0"
   }
